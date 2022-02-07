@@ -1,0 +1,129 @@
+body.restaurant {
+    background-color: $color-grey-dark;
+}
+
+h1.restaurant {
+    font-family: 'Shrikhand', cursive;
+    font-weight: inherit;
+    flex: 1 1 0;
+}
+
+.main {
+    position: relative;
+    z-index: 1;
+    background-color: $color-grey-light;
+    padding: 32px $space-small;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    gap: $space;
+    @include wide {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .restaurant_name {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        font-size: $font-Large;
+        .heart {
+            margin-right: $space-small;
+        }
+    }
+    section {
+        display: flex;
+        gap: $space-small;
+        flex-direction: column;
+        @include wide {
+            flex: 1 1 30%;
+        }
+        .title {
+            text-transform: uppercase;
+            hr {
+                margin-top: 4px;
+                border: 1px solid $color-tertiary;
+                width: 40px;
+            }
+        }
+        .card {
+            background-color: $color-white;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            &:hover {
+                transform: scale(1.01);
+                cursor: pointer;
+                .validate {
+                    width: 60px;
+                    i {
+                        animation: Rotate_I 0.7s ease 0s 1 normal forwards;
+                    }
+                }
+            }
+            opacity: 0;
+            animation: show_card 1s ease-in-out 0s forwards;
+            &:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+            &:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+            @keyframes show_card {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: none;
+                }
+            }
+            .info {
+                padding: $space-small;
+                flex: 1 1 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                h3 {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+            .prix {
+                font-weight: 600;
+                display: flex;
+                align-items: flex-end;
+                padding: $space-small;
+            }
+            .validate {
+                background-color: $color-tertiary;
+                font-size: $font-Large;
+                color: $color-white;
+                overflow: hidden;
+                width: 0px;
+                transition: width 0.5s linear;
+                i {
+                    display: flex;
+                    width: 60px;
+                    height: 100%;
+                    justify-content: center;
+                    align-items: center;
+                }
+                @keyframes Rotate_I {
+                    0% {
+                        transform: rotate(0);
+                    }
+                    100% {
+                        transform: rotate(720deg);
+                    }
+                }
+            }
+        }
+    }
+}
