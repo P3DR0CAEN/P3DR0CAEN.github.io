@@ -1,7 +1,0 @@
-{
-    "private": true,
-    "scripts": {
-        "dev": "sass sass/app.scss css/app.css",
-        "watch": "sass sass/app.scss css/app.css --watch"
-    }
-}
